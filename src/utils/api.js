@@ -9,7 +9,7 @@ const api = axios.create({
 /**
  * console.log all requests and responses
  */
-api.interceptors.request.use(
+api.interceptors.request.use( // 인터셉터 : 요청이 서버로 가기 전에 특정 작업을 수행할 수 있음
   (request) => {
     console.log("Starting Request", request);
     return request;
@@ -27,7 +27,7 @@ api.interceptors.response.use(
   function (error) {
     error = error.response.data;
     console.log("RESPONSE ERROR", error);
-    return Promise.reject(error);
+    return Promise.reject(error); //에러를 호출한 곳으로 다시 전달
   }
 );
 
